@@ -1,0 +1,76 @@
+<div>
+    <!-- Navbar start -->
+    <nav class="navbar navbar-expand-md bg-info navbar-dark shadow-lg fixed-top">
+        <a class="navbar-brand font-weight-bold"><img src="../../assets/images/logo.jpg" alt="logo" class="img-fluid rounded" width="100px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item pr-4">
+                <a class="nav-link text-white font-weight-bold" routerLink="/home" routerLinkActive="active">Home</a>
+              </li>
+            <li class="nav-item pr-4">
+              <a class="nav-link text-white font-weight-bold" routerLink="/orders" routerLinkActive="active">Order</a>
+            </li>
+            <li class="nav-item pr-4">
+              <a class="nav-link text-white font-weight-bold" routerLink="/cart" routerLinkActive="active">Cart</a>
+            </li>
+          </ul>
+        </div>  
+      </nav>
+    <!-- Navbar end -->
+</div>
+
+<!-- Cart area start -->
+<div class="container">
+<section style="margin-top: 202px; margin-bottom: 178px;">
+  <div class="row">
+    <div class="col-sm-8">
+        <div class="card ">
+            <div class="card-header"><h6 class="font-weight-bold">My Cart</h6></div>
+            <div class="card-body">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </thead>
+                    <tr *ngFor =  "let array of productinformation">
+                        <td><img [src]="array.img" alt="" style="height: 50px;"></td>
+                        <td>{{array.name}}</td>
+                        <td style="color: green; font-weight: 700;">₹ {{array.price}}</td>
+                        <td>
+                          <tr>
+                            <td><button type="button" class="btn btn-danger  font-weight-bold" (click)="remove()">-</button></td>
+                            <td>{{counter}}</td>
+                            <td><button type="button" class="btn btn-primary  font-weight-bold" (click)="add()">+</button></td>
+                          </tr>
+                        </td>
+                        <td style="font-weight: bold; color: rgb(19, 78, 19);">₹ {{total}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card-footer" style="background-color: white;"><button class="btn btn-danger btn-lg rounded-0 float-right" (click)="addtotal()">Add Total</button></div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header"><h6 class="font-weight-bold">Price Details</h6></div>
+            <div class="card-body">Total Price:{{alltotal}}</div>
+            <div class="card-footer" style="background-color: white;"><button class="btn btn-danger btn-lg rounded-0 float-right">Buy Now</button></div>
+        </div>
+    </div>
+</div>
+</section>
+</div>
+<!-- Cart area end -->
+
+ <!-- Footer -->
+ <div>
+    <footer class="py-2 bg-info">
+        <h6 class="text-center text-white">Shoppingcart &copy; 2020 Reserveed</h6>
+    </footer>
+</div>
